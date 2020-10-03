@@ -28,12 +28,11 @@ public class TimerApplication {
             switch (userChoice) {
                 case 1:
                     System.out.println("1. Login");
-                    login();
                     enterMainMenu();
                     break;
 
                 case 2:
-                    coffeeTimer.startTimer();
+                    coffeeTimer.setTimer();
                     enterMainMenu();
                     break;
 
@@ -43,7 +42,7 @@ public class TimerApplication {
                     break;
 
                 case 4:
-                    System.out.println("3. Add your favourite coffee");
+                    System.out.println("3. Add your favourite coffee to your list");
                     enterMainMenu();
                     break;
 
@@ -53,7 +52,7 @@ public class TimerApplication {
                     break;
 
                 case 6:
-                    System.out.println("Share coffee");
+                    System.out.println("5. Share coffee");
                     enterMainMenu();
                     break;
 
@@ -71,12 +70,5 @@ public class TimerApplication {
         else {
             showMenu = false;
         }
-    }
-    public void login() {
-        Scanner scan = new Scanner(System.in);
-        System.out.println("Username: ");
-        String username = scan.nextLine();
-        System.out.println("Password: ");
-        String password = scan.nextLine();
     }
 }
