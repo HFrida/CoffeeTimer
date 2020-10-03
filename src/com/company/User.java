@@ -6,7 +6,7 @@ public class User {
 
     private String username = "user1";
     private String password = "password1";
-    RegisterUser registerUser;
+
 
 
     public void login() {
