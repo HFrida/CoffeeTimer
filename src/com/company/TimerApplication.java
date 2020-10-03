@@ -1,32 +1,82 @@
 package com.company;
 
-import java.util.ArrayList;
+import java.util.Scanner;
 
 public class TimerApplication {
 
-    public void showCoffee() {
+    private int userChoice;
+    boolean showMenu = true;
+    private String enterMainMenu = "Press Y to return to main menu";
+    Scanner userInput = new Scanner(System.in);
+    CoffeeTimer coffeeTimer = new CoffeeTimer();
+    Coffee coffee = new Coffee();
 
-        Coffee product1 = new Coffee("Löfbergs", "Mellanrost", "En originalblandning, en fyllig  mellanrost, som framhäver en fin och mjuk arom.");
+    public void menu() {
 
-        Coffee product2 = new Coffee("Arvid Nordqvist", "Classic Festivita", "Festivita är ett extra mörkrostat bryggmalet kaffe med intensiv doft. Kraftfull och fyllig smak med inslag av mörk choklad.");
+        while (showMenu) {
+            System.out.println("What do you want to do?");
+            System.out.println("1. Login");
+            System.out.println("2. Start timer");
+            System.out.println("3. Read about coffee");
+            System.out.println("4. Add coffee to your list");
+            System.out.println("5. Rate coffee");
+            System.out.println("6. Share coffee on your social media");
+            System.out.println("7. Exit");
+            System.out.println("Enter a number: ");
+            userChoice = userInput.nextInt();
 
-        Coffee product3 = new Coffee("Zoéga", "Skånerost", "Skånerost är ett malet mörkrostat bryggkaffe från Zoégas bestående av 100 % Arabicabönor, som ger ett särskilt smakrikt kaffe med mjuka och spännande nyanser av frukt och mörka bär.");
+            switch (userChoice) {
+                case 1:
+                    System.out.println("1. Login");
+                    login();
+                    enterMainMenu();
+                    break;
 
-        Coffee product4 = new Coffee("Gevalia", "Mörkrost", "Gevalia mörkrostade kaffe består av 100% Arabicabönor, med en välbalanserad och lätt fruktig smak");
+                case 2:
+                    coffeeTimer.startTimer();
+                    enterMainMenu();
+                    break;
 
-        ArrayList<Coffee> products = new ArrayList<>();
-        products.add(product1);
-        products.add(product2);
-        products.add(product3);
-        products.add(product4);
+                case 3:
+                    coffee.showCoffee();
+                    enterMainMenu();
+                    break;
 
-        StringBuilder stringBuilder = new StringBuilder();
-        for (Coffee product : products) {
-            stringBuilder.append(product);
-        }
-        String text = stringBuilder.toString();
+                case 4:
+                    System.out.println("3. Add your favourite coffee");
+                    enterMainMenu();
+                    break;
 
-        System.out.println(text);
+                case 5:
+                    System.out.println("4. Rate coffee");
+                    enterMainMenu();
+                    break;
 
+                case 6:
+                    System.out.println("Share coffee");
+                    enterMainMenu();
+                    break;
+
+                case 7:
+                    System.exit(0);
+            }
         }
     }
+    public void enterMainMenu() {
+        System.out.println(enterMainMenu);
+        String backToMainMenu = userInput.next();
+        if (backToMainMenu.equalsIgnoreCase("Y")) {
+            showMenu = true;
+        }
+        else {
+            showMenu = false;
+        }
+    }
+    public void login() {
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Username: ");
+        String username = scan.nextLine();
+        System.out.println("Password: ");
+        String password = scan.nextLine();
+    }
+}
