@@ -7,7 +7,17 @@ public class RegisterUser {
     private String name;
     private String password;
     private String eMail;
+    RegisterUser register;
 
+    public RegisterUser() {
+
+    }
+
+    public RegisterUser(String name, String password, String eMail) {
+        this.name = name;
+        this.password = password;
+        this.eMail = eMail;
+    }
 
     public void setName(String name) {
         this.name = name;
@@ -22,7 +32,6 @@ public class RegisterUser {
     }
 
     public void registerPage () {
-        RegisterUser register = new RegisterUser();
         try  (Scanner in = new Scanner(System.in)) {
             System.out.println("Enter your full name: ");
             String name = in.nextLine();

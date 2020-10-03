@@ -3,6 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="511c6715-ed95-432a-b45e-2f7b9da0a862" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/RegisterUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/RegisterUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Timer.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +62,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1601547545399</updated>
-      <workItem from="1601550388231" duration="16551000" />
+      <workItem from="1601550388231" duration="18041000" />
     </task>
     <task id="LOCAL−00001" summary="&quot;changes in the user class&quot;">
       <created>1601715082675</created>
@@ -96,10 +99,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="&quot;changes in the user class&quot;" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="446" y="120" key="#com.intellij.ide.util.MemberChooser" timestamp="1601636712760">
+    <state x="446" y="120" key="#com.intellij.ide.util.MemberChooser" timestamp="1601716661784">
       <screen x="0" y="23" width="1280" height="748" />
     </state>
-    <state x="446" y="120" key="#com.intellij.ide.util.MemberChooser/0.23.1280.748@0.23.1280.748" timestamp="1601636712760" />
+    <state x="446" y="120" key="#com.intellij.ide.util.MemberChooser/0.23.1280.748@0.23.1280.748" timestamp="1601716661784" />
     <state x="227" y="23" key="CommitChangelistDialog2" timestamp="1601715516403">
       <screen x="0" y="23" width="1280" height="748" />
     </state>

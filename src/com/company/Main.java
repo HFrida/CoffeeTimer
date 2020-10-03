@@ -6,10 +6,11 @@ public class Main {
 
     public static void main(String[] args) {
         RegisterUser createProfile = new RegisterUser();
+        TimerApplication timerApplication = new TimerApplication();
         User user = new User();
         user.login();
-        TimerApplication timerApplication = new TimerApplication();
         timerApplication.showCoffee();
+        createProfile.registerPage();
 
 
 
