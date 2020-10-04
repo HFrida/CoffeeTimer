@@ -10,6 +10,12 @@ public class TimerApplication {
     Scanner userInput = new Scanner(System.in);
     CoffeeTimer coffeeTimer = new CoffeeTimer();
     Coffee coffee = new Coffee();
+    User user = new User();
+    RegisterUser registerUser = new RegisterUser();
+
+    public void registerPage() {
+        registerUser.registerPage();
+    }
 
     public void menu() {
 
@@ -19,15 +25,16 @@ public class TimerApplication {
             System.out.println("2. Start timer");
             System.out.println("3. Read about coffee");
             System.out.println("4. Add coffee to your list");
-            System.out.println("5. Rate coffee");
-            System.out.println("6. Share coffee on your social media");
-            System.out.println("7. Exit");
+            System.out.println("5. Show your favourite coffees");
+            System.out.println("6. Rate coffee");
+            System.out.println("7. Share coffee on your social media");
+            System.out.println("8. Exit");
             System.out.println("Enter a number: ");
             userChoice = userInput.nextInt();
 
             switch (userChoice) {
                 case 1:
-                    System.out.println("1. Login");
+                    user.login();
                     enterMainMenu();
                     break;
 
@@ -37,26 +44,32 @@ public class TimerApplication {
                     break;
 
                 case 3:
-                    coffee.showCoffee();
+                    coffee.listCoffee();
                     enterMainMenu();
                     break;
 
                 case 4:
-                    System.out.println("3. Add your favourite coffee to your list");
+                    coffee.listCoffee();
+                    coffee.addCoffee();
                     enterMainMenu();
                     break;
 
                 case 5:
-                    System.out.println("4. Rate coffee");
+                    user.showList();
                     enterMainMenu();
                     break;
 
                 case 6:
-                    System.out.println("5. Share coffee");
+                    System.out.println("4. Rate coffee");
                     enterMainMenu();
                     break;
 
                 case 7:
+                    System.out.println("5. Share coffee");
+                    enterMainMenu();
+                    break;
+
+                case 8:
                     System.exit(0);
             }
         }
