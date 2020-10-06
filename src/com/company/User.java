@@ -13,7 +13,7 @@ public class User implements RegisterUser {
     private String loginPassword;
     protected ArrayList<Coffee> favourites = new ArrayList<>();
     private int chooseSocialMedia;
-    private String socialMedia [] = {"1. Facebook", "2. Instagram", "3. Twitter"};
+    private String socialMedia[] = {"1. Facebook", "2. Instagram", "3. Twitter"};
     Scanner in = new Scanner(System.in);
 
     public User() {
@@ -70,7 +70,6 @@ public class User implements RegisterUser {
             } else {
                 System.out.println("Your username or password is incorrect, please try again");
             }
-
         }
     }
 
@@ -108,6 +107,7 @@ public class User implements RegisterUser {
         String userList = builder.toString();
         System.out.println(userList);
     }
+
     public void rateCoffee() {
         System.out.println("Enter the name of the product you want to rate: ");
         String userChoice = in.nextLine();
@@ -120,9 +120,47 @@ public class User implements RegisterUser {
                 System.out.println("Your coffee is now rated");
                 break;
             }
-            if (favourites.indexOf(favourite) == favourites.size()-1) {
+            if (favourites.indexOf(favourite) == favourites.size() - 1) {
                 System.out.println("You don't seem to have this product in your list...");
             }
         }
+    }
+
+    public void shareCoffee() {
+        System.out.println("Enter the name of the product you want to share: ");
+        String userChoice = in.nextLine();
+
+        System.out.println("Where do you want to share it? ");
+        for (int i = 0; i < socialMedia.length; i++)
+            System.out.println(socialMedia[i]);
+
+        chooseSocialMedia = in.nextInt();
+        switch (chooseSocialMedia) {
+            case 1:
+                for (Coffee favourite : favourites) {
+                    if (userChoice.equalsIgnoreCase((favourite.getProduct()))) {
+                        System.out.println("Your information is now shared with your friends on Facebook ");
+                    }
+                }
+                break;
+            case 2:
+                for (Coffee favourite : favourites) {
+                    if (userChoice.equalsIgnoreCase((favourite.getProduct()))) {
+                        System.out.println(" Your info is now shared on Instagram ");
+                    }
+                }
+                break;
+            case 3:
+                for (Coffee favourite : favourites) {
+                    if (userChoice.equalsIgnoreCase((favourite.getProduct()))) {
+                        System.out.println("Your info is now on Twitter. Let the hate begin");
+                    }
+                }
+                break;
+
+            default:
+                System.out.println("You don't seem to have this product in your list...");
+        }
+
     }
 }

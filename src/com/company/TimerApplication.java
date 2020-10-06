@@ -59,14 +59,14 @@ public class TimerApplication {
                     break;
 
                 case 6:
-                    System.out.println("4. Rate coffee");
                     user.showFavourites();
                     user.rateCoffee();
                     enterMainMenu();
                     break;
 
                 case 7:
-                    System.out.println("5. Share coffee");
+                    user.showFavourites();
+                    user.shareCoffee();
                     enterMainMenu();
                     break;
 
@@ -75,13 +75,13 @@ public class TimerApplication {
             }
         }
     }
+
     public void enterMainMenu() {
         System.out.println(enterMainMenu);
         String backToMainMenu = userInput.next();
         if (backToMainMenu.equalsIgnoreCase("Y")) {
             showMenu = true;
-        }
-        else {
+        } else {
             showMenu = false;
         }
     }

@@ -1,7 +1,6 @@
 package com.company;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class Coffee {
 
@@ -23,12 +22,6 @@ public class Coffee {
         this.producer = producer;
         this.product = product;
         this.information = information;
-    }
-    public Coffee(String producer, String product, String information, String rateText) {
-        this.producer = producer;
-        this.product = product;
-        this.information = information;
-        this.rateText = rateText;
     }
 
     static {
