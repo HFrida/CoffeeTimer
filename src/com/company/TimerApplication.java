@@ -13,6 +13,22 @@ public class TimerApplication {
     User user = new User();
     RegisterUser registerUser = new RegisterUser();
 
+/*
+    Coffee product1 = new Coffee("1. Löfbergs", "Mellanrost", "En originalblandning, en fyllig  mellanrost, som framhäver en fin och mjuk arom.");
+
+    Coffee product2 = new Coffee("2. Arvid Nordqvist", "Classic Festivita", "Festivita är ett extra mörkrostat bryggmalet kaffe med intensiv doft. Kraftfull och fyllig smak med inslag av mörk choklad.");
+
+    Coffee product3 = new Coffee("3. Zoéga", "Skånerost", "Skånerost är ett malet mörkrostat bryggkaffe från Zoégas bestående av 100 % Arabicabönor, som ger ett särskilt smakrikt kaffe med mjuka och spännande nyanser av frukt och mörka bär.");
+
+    Coffee product4 = new Coffee("4. Gevalia", "Mörkrost", "Gevalia mörkrostade kaffe består av 100% Arabicabönor, med en välbalanserad och lätt fruktig smak");
+
+    public void addToArray() {
+        coffee.products.add(product1);
+        coffee.products.add(product2);
+        coffee.products.add(product3);
+        coffee.products.add(product4);
+    }
+*/
     public void registerPage() {
         registerUser.registerPage();
     }
@@ -44,18 +60,20 @@ public class TimerApplication {
                     break;
 
                 case 3:
+                    //addToArray();
                     coffee.listCoffee();
                     enterMainMenu();
                     break;
 
                 case 4:
+                    //addToArray();
                     coffee.listCoffee();
-                    coffee.addCoffee();
+                    user.addFavourite();
                     enterMainMenu();
                     break;
 
                 case 5:
-                    user.showList();
+                    user.showFavourites();
                     enterMainMenu();
                     break;
 

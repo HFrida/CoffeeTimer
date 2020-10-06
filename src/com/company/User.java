@@ -5,27 +5,37 @@ import java.util.Scanner;
 
 public class User {
 
-    private String username = "user1";
-    private String password = "password1";
-    protected ArrayList<Coffee> favourites = new ArrayList<>();
+    RegisterUser register = new RegisterUser();
+    private String loginUsername;
+    private String loginPassword;
+    protected static ArrayList<Coffee> favourites = new ArrayList<>();
 
-
-    public void login() {
-        Scanner scan = new Scanner(System.in);
-        System.out.println("Enter your username here: ");
-        username = scan.nextLine();
-
-        System.out.println("Enter your password here: ");
-        password = scan.nextLine();
-        verifyUser();
+    public User() {
 
     }
 
-    public void verifyUser() {
-        if ("user1".equals(username) && "password1".equals(password)) {
-            System.out.println("You are logged in");
-        } else {
-            System.out.println("Your username or password is invalid");
+    public User(String loginUsername, String loginPassword) {
+        this.loginUsername = loginUsername;
+        this.loginPassword = loginPassword;
+    }
+
+    public void login() {
+        boolean loginCheck = true;
+        while (loginCheck) {
+            Scanner scan = new Scanner(System.in);
+            System.out.println("Enter your username here: ");
+            loginUsername = scan.nextLine();
+
+            System.out.println("Enter your password here: ");
+            loginPassword = scan.nextLine();
+
+            if (loginUsername.equalsIgnoreCase(register.getUsername()) && loginPassword.equalsIgnoreCase(register.getPassword())) {
+                System.out.println("You are logged in");
+                loginCheck = false;
+            } else {
+                System.out.println("Your username or password is incorrect, please try again");
+            }
+
         }
     }
 
@@ -39,27 +49,23 @@ public class User {
 
             case 1:
                 favourites.add(0, coffee.getProduct1());
-                //System.out.println(coffee.product1.producer + " is added to your favourites");
                 break;
 
             case 2:
                 favourites.add(1, coffee.getProduct2());
-                //System.out.println(coffee.product2.producer + " is added to your favourites");
                 break;
 
             case 3:
                 favourites.add(2, coffee.getProduct3());
-                //System.out.println(coffee.product3.producer + " is added to your favourites");
                 break;
 
             case 4:
                 favourites.add(3, coffee.getProduct4());
-                //System.out.println(coffee.product4.producer + " is added to your favourites");
                 break;
         }
     }
 
-    public void showList() {
+    public void showFavourites() {
         StringBuilder builder = new StringBuilder();
         for (Coffee favourite : favourites) {
             builder.append(favourite);
