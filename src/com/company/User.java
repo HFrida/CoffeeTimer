@@ -3,20 +3,55 @@ package com.company;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class User {
+public class User implements RegisterUser {
 
-    RegisterUser register = new RegisterUser();
+    private String registerUsername;
+    private String registerPassword;
+    private String name;
+    private String email;
     private String loginUsername;
     private String loginPassword;
-    protected static ArrayList<Coffee> favourites = new ArrayList<>();
+    protected ArrayList<Coffee> favourites = new ArrayList<>();
+    private int chooseSocialMedia;
+    private String socialMedia [] = {"1. Facebook", "2. Instagram", "3. Twitter"};
+    Scanner in = new Scanner(System.in);
 
     public User() {
 
     }
 
-    public User(String loginUsername, String loginPassword) {
-        this.loginUsername = loginUsername;
-        this.loginPassword = loginPassword;
+    public void setRegisterUsername(String registerUsername) {
+        this.registerUsername = registerUsername;
+    }
+
+    public void setRegisterPassword(String registerPassword) {
+        this.registerPassword = registerPassword;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void registerPage() {
+        System.out.println("Enter your full name: ");
+        name = in.nextLine();
+        setName(name);
+
+        System.out.println("Enter your email: ");
+        email = in.nextLine();
+        setEmail(email);
+
+        System.out.println("Enter username: ");
+        registerUsername = in.nextLine();
+        setRegisterUsername(registerUsername);
+
+        System.out.println("Enter password: ");
+        registerPassword = in.nextLine();
+        setRegisterPassword(registerPassword);
     }
 
     public void login() {
@@ -29,7 +64,7 @@ public class User {
             System.out.println("Enter your password here: ");
             loginPassword = scan.nextLine();
 
-            if (loginUsername.equalsIgnoreCase(register.getUsername()) && loginPassword.equalsIgnoreCase(register.getPassword())) {
+            if (loginUsername.equalsIgnoreCase(registerUsername) && loginPassword.equalsIgnoreCase(registerPassword)) {
                 System.out.println("You are logged in");
                 loginCheck = false;
             } else {
@@ -48,19 +83,19 @@ public class User {
         switch (chooseCoffee) {
 
             case 1:
-                favourites.add(0, coffee.getProduct1());
+                favourites.add(coffee.getProduct1());
                 break;
 
             case 2:
-                favourites.add(1, coffee.getProduct2());
+                favourites.add(coffee.getProduct2());
                 break;
 
             case 3:
-                favourites.add(2, coffee.getProduct3());
+                favourites.add(coffee.getProduct3());
                 break;
 
             case 4:
-                favourites.add(3, coffee.getProduct4());
+                favourites.add(coffee.getProduct4());
                 break;
         }
     }
@@ -72,5 +107,22 @@ public class User {
         }
         String userList = builder.toString();
         System.out.println(userList);
+    }
+    public void rateCoffee() {
+        System.out.println("Enter the name of the product you want to rate: ");
+        String userChoice = in.nextLine();
+        System.out.println("Enter you rate, a number between 1-5: ");
+        String userRate = in.nextLine();
+
+        for (Coffee favourite : favourites) {
+            if (userChoice.equalsIgnoreCase(favourite.getProduct())) {
+                favourite.setRate(userRate);
+                System.out.println("Your coffee is now rated");
+                break;
+            }
+            if (favourites.indexOf(favourite) == favourites.size()-1) {
+                System.out.println("You don't seem to have this product in your list...");
+            }
+        }
     }
 }
