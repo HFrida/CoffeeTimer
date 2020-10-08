@@ -2,10 +2,12 @@ package com.company;
 
 import java.util.Scanner;
 
+//TimerApplication gives the prototype a structure so a user can navigate and test the functions of the application. It contains
+//a menu and depending on the choice our user make, we can run any function in our application here
 public class TimerApplication {
 
     private int userChoice;
-    boolean showMenu = true;
+    private boolean showMenu = true;
     private String enterMainMenu = "Press Y to return to main menu";
     Scanner userInput = new Scanner(System.in);
     CoffeeTimer coffeeTimer = new CoffeeTimer();
@@ -76,6 +78,7 @@ public class TimerApplication {
         }
     }
 
+    //Let user get back to main menu bu pressing Y
     public void enterMainMenu() {
         System.out.println(enterMainMenu);
         String backToMainMenu = userInput.next();

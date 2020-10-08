@@ -8,6 +8,7 @@ public class CoffeeTimer {
 
     private String soonCoffee = "Your coffee is almost ready!";
     private String reminder = "Don't forget your coffee. Your timer will soon shut of";
+    private String done = "The timer is off";
     Scanner userInput = new Scanner(System.in);
 
     int seconds1 = 0;
@@ -17,6 +18,7 @@ public class CoffeeTimer {
 
     public void setTimer() {
 
+        //Let user choose one option
         System.out.println("1. 15 minutes");
         System.out.println("2. 30 minutes");
         System.out.println("3. 45 minutes");
@@ -26,11 +28,12 @@ public class CoffeeTimer {
         Timer timer = new Timer();
 
         switch (timerMinutes) {
-
+            //Execute a different run() depending on users choice
             case 1:
                 TimerTask task1 = new TimerTask() {
                     @Override
                     public void run() {
+                        //Let seconds increase and print out the seconds so the user can see the time
                         seconds1++;
                         System.out.println(seconds1);
                         if (seconds1 == 3) {
@@ -38,10 +41,12 @@ public class CoffeeTimer {
                         } else if (seconds1 == 12) {
                             System.out.println(reminder);
                         } else if (seconds1 == 15) {
+                            System.out.println(done);
                             timer.cancel();
                         }
                     }
                 };
+                //Schedule timer, delay it 1 second before it starts and let it rest 1 second between task executions
                 timer.schedule(task1, 1000, 1000);
                 break;
 
@@ -55,6 +60,7 @@ public class CoffeeTimer {
                         } else if (seconds2 == 27) {
                             System.out.println(reminder);
                         } else if (seconds2 == 30) {
+                            System.out.println(done);
                             timer.cancel();
                         }
                     }
@@ -72,10 +78,12 @@ public class CoffeeTimer {
                         } else if (seconds3 == 42) {
                             System.out.println(reminder);
                         } else if (seconds3 == 45) {
+                            System.out.println(done);
                             timer.cancel();
                         }
                     }
                 };
+
                 timer.schedule(task3, 1000, 1000);
                 break;
 
@@ -89,6 +97,7 @@ public class CoffeeTimer {
                         } else if (seconds4 == 57) {
                             System.out.println(reminder);
                         } else if (seconds4 == 60) {
+                            System.out.println(done);
                             timer.cancel();
                         }
                     }

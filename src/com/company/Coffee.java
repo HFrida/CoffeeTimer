@@ -2,17 +2,19 @@ package com.company;
 
 import java.util.ArrayList;
 
+//Store information about different type of coffee and the method listCoffee() presents the information to the user
 public class Coffee {
 
     private String producer;
     private String product;
     private String information;
     private String rateText = "This product is not rated yet";
-    protected static Coffee product1 = new Coffee("1. Löfbergs", "Mellanrost", "En originalblandning, en fyllig  mellanrost, som framhäver en fin och mjuk arom.");
-    protected static Coffee product2 = new Coffee("2. Arvid Nordqvist", "Classic Festivita", "Festivita är ett extra mörkrostat bryggmalet kaffe med intensiv doft. Kraftfull och fyllig smak med inslag av mörk choklad.");
-    protected static Coffee product3 = new Coffee("3. Zoéga", "Skånerost", "Skånerost är ett malet mörkrostat bryggkaffe från Zoégas bestående av 100 % Arabicabönor, som ger ett särskilt smakrikt kaffe med mjuka och spännande nyanser av frukt och mörka bär.");
-    protected static Coffee product4 = new Coffee("4. Gevalia", "Mörkrost", "Gevalia mörkrostade kaffe består av 100% Arabicabönor, med en välbalanserad och lätt fruktig smak");
-    protected static ArrayList<Coffee> products = new ArrayList<>();
+    //The products are declared static so we can access them without creating an instance of the class
+    private static Coffee product1 = new Coffee("1. Löfbergs", "Mellanrost", "En originalblandning, en fyllig  mellanrost, som framhäver en fin och mjuk arom.");
+    private static Coffee product2 = new Coffee("2. Arvid Nordqvist", "Classic Festivita", "Festivita är ett extra mörkrostat bryggmalet kaffe med intensiv doft. Kraftfull och fyllig smak med inslag av mörk choklad.");
+    private static Coffee product3 = new Coffee("3. Zoéga", "Skånerost", "Skånerost är ett malet mörkrostat bryggkaffe från Zoégas bestående av 100 % Arabicabönor, som ger ett särskilt smakrikt kaffe med mjuka och spännande nyanser av frukt och mörka bär.");
+    private static Coffee product4 = new Coffee("4. Gevalia", "Mörkrost", "Gevalia mörkrostade kaffe består av 100% Arabicabönor, med en välbalanserad och lätt fruktig smak");
+    private static ArrayList<Coffee> products = new ArrayList<>();
 
     public Coffee() {
 
@@ -23,8 +25,8 @@ public class Coffee {
         this.product = product;
         this.information = information;
     }
-
-    static {
+    //Insert our static components to our static array
+    static  {
         products.add(product1);
         products.add(product2);
         products.add(product3);

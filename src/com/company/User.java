@@ -3,6 +3,7 @@ package com.company;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+//Contains information about a user and methods of what a user can do in the application
 public class User implements RegisterUser {
 
     private String registerUsername;
@@ -11,7 +12,8 @@ public class User implements RegisterUser {
     private String email;
     private String loginUsername;
     private String loginPassword;
-    protected ArrayList<Coffee> favourites = new ArrayList<>();
+    private ArrayList<Coffee> favourites = new ArrayList<>();
+    private String added = "The coffee is now added to your list of favourites";
     private int chooseSocialMedia;
     private String socialMedia[] = {"1. Facebook", "2. Instagram", "3. Twitter"};
     Scanner in = new Scanner(System.in);
@@ -36,6 +38,7 @@ public class User implements RegisterUser {
         this.email = email;
     }
 
+    //Let the user register
     public void registerPage() {
         System.out.println("Enter your full name: ");
         name = in.nextLine();
@@ -54,6 +57,7 @@ public class User implements RegisterUser {
         setRegisterPassword(registerPassword);
     }
 
+    //Let the user login
     public void login() {
         boolean loginCheck = true;
         while (loginCheck) {
@@ -73,6 +77,7 @@ public class User implements RegisterUser {
         }
     }
 
+    //Let user add a coffee to a list of their favourites
     public void addFavourite() {
         Coffee coffee = new Coffee();
         System.out.println("Enter the number of coffee you want to store: ");
@@ -83,22 +88,27 @@ public class User implements RegisterUser {
 
             case 1:
                 favourites.add(coffee.getProduct1());
+                System.out.println(added);
                 break;
 
             case 2:
                 favourites.add(coffee.getProduct2());
+                System.out.println(added);
                 break;
 
             case 3:
                 favourites.add(coffee.getProduct3());
+                System.out.println(added);
                 break;
 
             case 4:
                 favourites.add(coffee.getProduct4());
+                System.out.println(added);
                 break;
         }
     }
 
+    //Let user see the listed favourites
     public void showFavourites() {
         StringBuilder builder = new StringBuilder();
         for (Coffee favourite : favourites) {
@@ -108,6 +118,7 @@ public class User implements RegisterUser {
         System.out.println(userList);
     }
 
+    //Let user rate a coffee from their list of favourites
     public void rateCoffee() {
         System.out.println("Enter the name of the product you want to rate: ");
         String userChoice = in.nextLine();
@@ -126,6 +137,7 @@ public class User implements RegisterUser {
         }
     }
 
+    //Let user share a coffee from their list of favourites, on social media
     public void shareCoffee() {
         System.out.println("Enter the name of the product you want to share: ");
         String userChoice = in.nextLine();
@@ -161,6 +173,5 @@ public class User implements RegisterUser {
             default:
                 System.out.println("You don't seem to have this product in your list...");
         }
-
     }
 }
